@@ -1,0 +1,5 @@
+#Ignoring Some Packages
+test/
+node_modules/
+icons/
+css/
