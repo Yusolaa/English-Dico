@@ -2,6 +2,7 @@
 const wrapper = document.querySelector('.wrapper ');
 const audio = document.querySelector('.audio');
 const inputElement = document.querySelector('.input-word');
+const searchDelay = document.querySelector('.searchbar');
 // const audioElement = document.querySelector('.audio-player');
 let word;
 
@@ -24,17 +25,32 @@ inputElement.addEventListener('keydown', (event) => {
   }
 });
 
+function showSearchingMessage() {
+  searchDelay.textContent = 'Searching for word...';
+}
+
+// Function to hide the searching message
+function hideSearchingMessage() {
+  searchDelay.textContent = '';
+}
+
 const Dictionary = async () => {
   try {
+    showSearchingMessage();
     const rep = await fetch(`${url}${word}`);
     if (!rep.ok) {
       throw new Error(`API request failed with status: ${rep.status}`);
     }
     const data = await rep.json();
     console.log(data);
-    getDictionary(data);
+
+    setTimeout(() => {
+      hideSearchingMessage();
+      getDictionary(data);
+    }, 5000);
   } catch (error) {
     console.log('Error fetching definition:', error);
+    hideSearchingMessage();
     return null;
   }
 };

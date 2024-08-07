@@ -9,11 +9,9 @@
   <body>
     <section>
       <main>
-        <div
-          class="wrapper flex flex-col min-h-96 mt-11 items-center justify-center"
-        >
+        <div class="wrapper flex flex-col">
           <div
-            class="wrap bg-red-600 mx-auto text-center p-10 md:h-2/4 flex flex-col gap-8 text-white rounded-md"
+            class="wrap bg-red-600 mx-auto mt-14 text-center p-10 flex flex-col h-2/3 md:h-2/3 md:mt-48 lg:mt-10 items-center justify-center gap-8 text-white rounded-md"
           >
             <div class="header">
               <h1 class="text-5xl font-bold">Dictionary</h1>
@@ -22,20 +20,23 @@
               <input
                 type="text"
                 placeholder="search....."
-                class="input-word p-2 pl-6 rounded-xl mt-3 text-black"
+                class="input-word p-2 pl-6 rounded-xl mt-3 text-black outline-zinc-50"
               />
-              <div class="world-output mt-2 text-2xl h-auto py-10 w-96">
-                <h3 class="font-bold float-left pl-20 md:float-none md:pl-0">
-                  Word
-                </h3>
+              <div
+                class="world-output text-center mt-2 text-2xl h-auto py-10 w-96"
+              >
+                <h3 class="font-bold -mt-5"></h3>
                 <br />
-                <div class="overflow-y-auto max-h-36">
-                  <p class="def-one">Word here..............</p>
+                <div
+                  class="text-ouput overflow-y-auto max-h-36 rounded-lg h-56 p-5"
+                >
+                  <p class="def-one"></p>
                   <br />
-                  <p class="def-two">Word here..............</p>
+                  <p class="def-two"></p>
                 </div>
               </div>
             </div>
+            <p class="searchbar -mt-8"></p>
             <div class="audio flex justify-center">
               <audio controls class="audio-player">
                 <source src="" type="audio/mpeg" />
