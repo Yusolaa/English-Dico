@@ -20,6 +20,38 @@ p {
 }
 
 .wrap {
-  background-color: #6d6d67;
+  border: 3px dashed rgb(3, 80, 3);
+  background-color: rgb(12, 126, 12);
   box-shadow: 0px 2px 10px rgb(244, 241, 247);
+}
+
+input:focus {
+  outline: 2px solid rgb(230, 230, 231);
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    outline-color: rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    outline-color: rgb(173, 173, 175);
+  }
+  50% {
+    outline-color: rgb(241, 241, 241);
+  }
+  75% {
+    outline-color: rgb(255, 238, 0);
+  }
+  100% {
+    outline-color: rgba(230, 215, 14, 0.795);
+  }
+}
+
+.wrap .text-ouput {
+  border: 2px solid white;
+}
+
+.world-output h3 {
+  padding-left: 4.6rem;
 }
