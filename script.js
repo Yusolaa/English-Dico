@@ -2,7 +2,8 @@
 const wrapper = document.querySelector('.wrapper ');
 const audio = document.querySelector('.audio');
 const inputElement = document.querySelector('.input-word');
-const searchDelay = document.querySelector('.searchbar');
+const message = document.querySelector('.searchbar');
+
 // const audioElement = document.querySelector('.audio-player');
 let word;
 
@@ -26,12 +27,16 @@ inputElement.addEventListener('keydown', (event) => {
 });
 
 function showSearchingMessage() {
-  searchDelay.textContent = 'Searching for word...';
+  message.textContent = 'Searching for word...';
 }
 
 // Function to hide the searching message
 function hideSearchingMessage() {
-  searchDelay.textContent = '';
+  message.textContent = '';
+}
+
+function onWordNotFound() {
+  message.textContent = `Word [${word}] not found.Enter a correct english word!`;
 }
 
 const Dictionary = async () => {
@@ -44,13 +49,12 @@ const Dictionary = async () => {
     const data = await rep.json();
     console.log(data);
 
-    setTimeout(() => {
-      hideSearchingMessage();
-      getDictionary(data);
-    }, 5000);
+    hideSearchingMessage();
+
+    getDictionary(data);
   } catch (error) {
     console.log('Error fetching definition:', error);
-    hideSearchingMessage();
+    onWordNotFound();
     return null;
   }
 };
@@ -65,7 +69,7 @@ const getDictionary = (data) => {
 
   wordHeading.textContent = data[0].word;
   definition.textContent = data[0].meanings[0].definitions[0].definition;
-  definitiontwo.textContent = data[0].meanings[0].definitions[1].definition;
+  // definitiontwo.textContent = data[0].meanings[0].definitions[1].definition;
   // audioSource.src = data[0].phonetics[0].audio;
   // console.log(audioSource);
   audio.innerHTML = `
